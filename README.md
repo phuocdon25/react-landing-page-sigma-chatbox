@@ -1,85 +1,102 @@
+# 🚀 Sigma Chat Box - AI Sales Assistant UI Template
 
-# 🚀 Sigma Chat Box - AI Sales Assistant Landing Page
-
-Chào mừng bạn đến với dự án **Sigma Chat Box**, một trang landing page hiện đại được xây dựng bằng React, giới thiệu giải pháp trợ lý bán hàng thông minh tích hợp trí tuệ nhân tạo (Google Gemini API).
-
-Dự án này được thiết kế với giao diện lấy cảm hứng từ các chatbot e-commerce hàng đầu (như Bitu AI), mang lại trải nghiệm tương tác mượt mà và trực quan.
+Sigma Chat Box is a high-performance, modern landing page built with **React** and **Tailwind CSS**. It is designed specifically for SaaS platforms offering AI-powered e-commerce solutions, featuring a high-fidelity interactive chat simulation.
 
 ---
 
-## 🌟 Tính năng nổi bật
+## 🌟 Key Features
 
-- **Interactive AI Chatbot**: Demo trực tiếp tính năng chat với "Sigma AI" ngay trên Hero section, sử dụng mô hình `gemini-3-flash-preview`.
-- **Giao diện hiện đại (UI/UX)**: Sử dụng Tailwind CSS với phong cách thiết kế chuyên nghiệp, màu sắc rực rỡ (Rose/Pink gradient).
-- **Phản hồi thời gian thực**: Trải nghiệm trò chuyện không độ trễ, có các hiệu ứng "typing" và mascot sinh động.
-- **Responsive Design**: Tương thích hoàn hảo trên mọi thiết bị từ Desktop, Tablet đến Mobile.
-- **Landing Page đầy đủ**: Bao gồm các Section: Hero, Features, CTA, và Footer chuyên nghiệp.
-
----
-
-## 🛠 Công nghệ sử dụng
-
-- **Frontend**: [React](https://react.dev/) (phiên bản mới nhất với Hooks).
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (thư viện CSS ưu tiên tiện ích).
-- **AI Core**: [@google/genai](https://www.npmjs.com/package/@google/genai) (Google Gemini API).
-- **Ngôn ngữ**: TypeScript (đảm bảo type-safe và code sạch).
-- **Icons & Images**: DiceBear (cho mascot) và Unsplash/Picsum.
+- **Interactive AI Simulation**: A fully functional mock chat widget that simulates real-time AI responses, typing states, and quick action buttons.
+- **Modern UI/UX**: Inspired by industry-leading e-commerce assistants (like Bitu AI), featuring vibrant gradients (Rose/Pink), smooth animations, and clean typography.
+- **Fully Responsive**: Optimized for every screen size, from ultra-wide desktops to mobile devices.
+- **Modular Component Architecture**: Built with reusable React components (Navbar, Hero, Features, Footer, etc.) for easy scalability.
+- **No-Build ESM Setup**: Uses direct ESM imports from `esm.sh`, allowing for rapid prototyping without complex build tools like Webpack or Vite for simple previews.
 
 ---
 
-## 🚀 Cách chạy dự án
+## 🛠 Tech Stack
 
-### 1. Yêu cầu hệ thống
-- Trình duyệt web hiện đại hỗ trợ ES Modules.
-- Một mã **API KEY** từ [Google AI Studio](https://aistudio.google.com/).
+- **Framework**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Assets**: 
+    - [DiceBear](https://www.dicebear.com/) (AI Avatars)
+    - [Google Fonts](https://fonts.google.com/) (Inter)
+- **Deployment/Imports**: [esm.sh](https://esm.sh/)
 
-### 2. Thiết lập môi trường
-Dự án này yêu cầu một biến môi trường để kết nối với Google Gemini API:
-- Đảm bảo `process.env.API_KEY` đã được cấu hình trong môi trường thực thi của bạn.
+---
 
-### 3. Cấu trúc thư mục
+## 🚀 Getting Started
+
+Since this project uses modern ES modules and imports directly from a CDN, you need a local web server to run it correctly due to CORS and module security policies.
+
+### 1. Prerequisites
+- A modern web browser (Chrome, Edge, Firefox, or Safari).
+- A local development server (like `npx serve`, VS Code Live Server, or Python's `http.server`).
+
+### 2. Installation
+1.  **Clone or Download** the project files to your local machine.
+2.  **Navigate** to the project root directory.
+
+### 3. Running the App
+Choose one of the following methods to serve the files:
+
+**Using Node.js (Recommended):**
+```bash
+npx serve .
+```
+Then open `http://localhost:3000` in your browser.
+
+**Using Python:**
+```bash
+python -m http.server 8000
+```
+Then open `http://localhost:8000` in your browser.
+
+**Using VS Code:**
+- Install the **"Live Server"** extension.
+- Right-click `index.html` and select **"Open with Live Server"**.
+
+---
+
+## 📂 Project Structure
+
 ```text
 .
-├── index.html          # File HTML chính, nạp Tailwind và React
-├── index.tsx           # Điểm khởi đầu của ứng dụng React
-├── App.tsx             # Component gốc quản lý layout và các section
-├── types.ts            # Định nghĩa các interface TypeScript
-├── metadata.json       # Thông tin meta của ứng dụng
-├── services/
-│   └── geminiService.ts # Logic kết nối với Google Gemini API
-└── components/         # Các thành phần giao diện
-    ├── Navbar.tsx      # Thanh điều hướng
-    ├── Hero.tsx        # Phần giới thiệu chính
-    ├── SigmaChatPreview.tsx # Widget Chatbot tương tác (Trái tim của dự án)
-    ├── Features.tsx    # Danh sách tính năng
-    └── Footer.tsx      # Chân trang
+├── index.html          # Entry HTML file with Tailwind & Import Maps
+├── index.tsx           # React mounting point
+├── App.tsx             # Main layout & section management
+├── types.ts            # TypeScript interfaces
+├── components/         # Reusable UI components
+│   ├── Navbar.tsx      # Navigation header
+│   ├── Hero.tsx        # Above-the-fold section
+│   ├── SigmaChatPreview.tsx # Interactive Chat Widget (Simulated)
+│   ├── AIAdvisor.tsx   # Detailed AI Consulting section
+│   ├── Features.tsx    # Product benefits showcase
+│   └── Footer.tsx      # Multi-column site footer
+└── services/
+    └── geminiService.ts # Placeholder for future AI integration
 ```
 
-### 4. Luồng xử lý của Chatbot
-1. Người dùng nhập câu hỏi vào `SigmaChatPreview`.
-2. Component gọi hàm `askSigmaAI` trong `geminiService.ts`.
-3. `geminiService` gửi prompt đến mô hình `gemini-3-flash-preview` với hướng dẫn hệ thống (System Instruction) cụ thể để giữ đúng vai trò "Trợ lý Sigma".
-4. Kết quả trả về được hiển thị dưới dạng bong bóng chat (bubble) thân thiện.
+---
+
+## 🧪 Mock Interaction Logic
+
+The current version of the "Sigma Assistant" uses a simulated logic layer located in `components/SigmaChatPreview.tsx`. It handles:
+- **Typing Indicators**: Visual feedback when the "AI" is processing.
+- **Quick Actions**: Preset buttons for common queries like "Warranty Policy" or "Order Tracking".
+- **Dynamic Response Map**: A simple key-value pair system to provide contextual answers without an external API.
+
+*Note: To integrate real AI (Google Gemini), you can configure the `askSigmaAI` function in `services/geminiService.ts` by adding your API key.*
 
 ---
 
-## 🎨 Tùy chỉnh (Customization)
+## 📝 Customization
 
-### Thay đổi nhân cách AI
-Bạn có thể thay đổi cách Sigma trả lời bằng cách chỉnh sửa `systemInstruction` trong file `services/geminiService.ts`:
-```typescript
-systemInstruction: "Bạn là [Tên trợ lý] - Chuyên gia về [Lĩnh vực]..."
-```
-
-### Thay đổi màu sắc thương hiệu
-Dự án sử dụng các class Tailwind như `rose-500`, `pink-500`. Bạn có thể dùng tính năng Search & Replace để thay đổi sang tông màu xanh (`indigo`, `blue`) hoặc bất kỳ màu nào khác phù hợp với thương hiệu của bạn.
+- **Branding**: Change the primary colors in `tailwind.config` (or the global script) from `rose` to your preferred brand color.
+- **Chat Persona**: Edit the `responses` object in `SigmaChatPreview.tsx` to change how the assistant talks.
+- **Mascot**: Swap the `dicebear.com` seed in the `img` tags to change the AI's appearance.
 
 ---
 
-## 📝 Lưu ý quan trọng
-- **Bảo mật**: Tuyệt đối không chia sẻ file chứa API KEY lên các kho lưu trữ công khai.
-- **Giới hạn**: Thông tin do AI cung cấp chỉ mang tính chất tham khảo (đã được ghi chú dưới khung chat).
-
----
-
-**Sigma Chat Box** - *Biến mọi cuộc trò chuyện thành một đơn hàng!* 🚀
+**Sigma Chat Box** - *Turning conversations into conversions.* 📈

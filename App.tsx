@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Footer from './components/Footer';
+import AIAdvisor from './components/AIAdvisor';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,21 +30,27 @@ const App: React.FC = () => {
           <Features />
         </section>
 
-        <section id="cta" className="py-20 bg-rose-600 overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500 rounded-full blur-3xl opacity-50 -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-400 rounded-full blur-3xl opacity-50 -ml-32 -mb-32"></div>
+        {/* AI Advisor Section */}
+        <section id="advisor" className="py-24 bg-white">
+          <AIAdvisor />
+        </section>
+
+        {/* CTA Section */}
+        <section id="cta" className="py-24 bg-rose-600 overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-rose-500 rounded-full blur-[100px] opacity-50 -mr-48 -mt-48"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-400 rounded-full blur-[100px] opacity-30 -ml-48 -mb-48"></div>
           
           <div className="container mx-auto px-6 text-center relative z-10">
-             <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Bạn đã sẵn sàng nâng tầm bán hàng?</h2>
-             <p className="text-rose-100 text-lg mb-10 max-w-2xl mx-auto">
-               Gia nhập cùng 500+ doanh nghiệp đang bùng nổ doanh số với Sigma AI. Miễn phí cài đặt trong 7 ngày đầu tiên.
+             <h2 className="text-4xl md:text-6xl font-black text-white mb-8">Bạn đã sẵn sàng để bùng nổ?</h2>
+             <p className="text-rose-100 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+               Gia nhập cùng cộng đồng doanh nghiệp hiện đại. Sigma giúp bạn tối ưu hóa tỷ lệ chuyển đổi ngay lập tức.
              </p>
-             <div className="flex flex-col sm:flex-row justify-center gap-4">
-               <button className="bg-white text-rose-600 px-10 py-5 rounded-2xl font-black text-xl hover:bg-rose-50 transition shadow-xl">
-                 Đăng ký dùng thử miễn phí
+             <div className="flex flex-col sm:flex-row justify-center gap-6">
+               <button className="bg-white text-rose-600 px-12 py-5 rounded-2xl font-black text-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+                 Bắt đầu Miễn phí
                </button>
-               <button className="bg-rose-700 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-rose-800 transition">
-                 Liên hệ đội ngũ Sales
+               <button className="bg-rose-700 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:bg-rose-800 transition-all">
+                 Xem Tài liệu SDK
                </button>
              </div>
           </div>

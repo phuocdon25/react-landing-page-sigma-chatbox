@@ -1,24 +1,31 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize GoogleGenAI with the API key from environment variables as per guidelines
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
-export const askSigmaAI = async (message: string) => {
+// Cố vấn Sigma AI sử dụng Google Gemini API
+// Đảm bảo export askSigmaAI để fix lỗi import trong AIAdvisor.tsx
+export const askSigmaAI = async (message: string): Promise<string> => {
   try {
-    // Call generateContent with model name and prompt
+    // Luôn khởi tạo instance mới với API Key từ env
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    
+    // Sử dụng model gemini-3-flash-preview cho các tác vụ tư vấn văn bản
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: message,
       config: {
-        systemInstruction: "Bạn là Sigma - Trợ lý AI thông minh của hệ thống Sigma Shop. Nhiệm vụ của bạn là hỗ trợ khách hàng tra cứu sản phẩm, kiểm tra đơn hàng và giải đáp các chính sách bảo hành. Hãy trả lời cực kỳ thân thiện, sử dụng icon phù hợp, và mang phong cách của một nhân viên tư vấn chuyên nghiệp. Nếu khách hàng hỏi về bảo hành, hãy nhắc đến chính sách 12 tháng 1 đổi 1 của Sigma.",
-        temperature: 0.8,
-      }
+        systemInstruction: "Bạn là Sigma AI Advisor, một chuyên gia tư vấn chiến lược cho doanh nghiệp và thương mại điện tử. Hãy trả lời bằng tiếng Việt chuyên nghiệp, sáng tạo và thực tiễn. Giúp người dùng hiểu cách tối ưu hóa quy trình bán hàng và trải nghiệm khách hàng với Sigma.",
+      },
     });
-    // Access the text property directly from response
-    return response.text || "Xin lỗi, Siggy đang bận một chút. Bạn nhắn lại sau nhé!";
+    
+    // Truy cập .text trực tiếp từ response
+    return response.text || "Tôi không thể đưa ra phản hồi lúc này. Vui lòng thử lại sau.";
   } catch (error) {
-    console.error("Gemini Error:", error);
-    return "Có lỗi kết nối. Vui lòng thử lại!";
+    console.error("Gemini API Error:", error);
+    // Trả về phản hồi dự phòng thân thiện nếu có lỗi API
+    return "Chào bạn! Hiện tại hệ thống tư vấn AI đang bận hoặc chưa được cấu hình khóa API. Sigma có thể giúp bạn tăng trưởng doanh thu bằng cách tự động hóa quy trình chăm sóc khách hàng và tối ưu hóa chuyển đổi.";
   }
+};
+
+export const mockResponse = (message: string) => {
+  return "Chào bạn! Đây là phản hồi giả lập từ giao diện Sigma. Trong bản chính thức, tôi sẽ kết nối với AI để trả lời bạn.";
 };
