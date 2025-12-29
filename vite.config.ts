@@ -8,6 +8,14 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        proxy: {
+          '/api': {
+            target: 'https://r8k8f6mz-8006.asse.devtunnels.ms',
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/api/, ''),
+            secure: false,
+          }
+        }
       },
       plugins: [react()],
       define: {
