@@ -28,34 +28,23 @@ Sigma Chat Box is a high-performance, modern landing page built with **React** a
 
 ## 🚀 Getting Started
 
-Since this project uses modern ES modules and imports directly from a CDN, you need a local web server to run it correctly due to CORS and module security policies.
-
 ### 1. Prerequisites
-- A modern web browser (Chrome, Edge, Firefox, or Safari).
-- A local development server (like `npx serve`, VS Code Live Server, or Python's `http.server`).
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
 
 ### 2. Installation
-1.  **Clone or Download** the project files to your local machine.
-2.  **Navigate** to the project root directory.
 
-### 3. Running the App
-Choose one of the following methods to serve the files:
-
-**Using Node.js (Recommended):**
+**Step 1: Install dependencies**
 ```bash
-npx serve .
+npm install
 ```
-Then open `http://localhost:3000` in your browser.
 
-**Using Python:**
+**Step 2: Run the development server**
 ```bash
-python -m http.server 8000
+npm run dev
 ```
-Then open `http://localhost:8000` in your browser.
 
-**Using VS Code:**
-- Install the **"Live Server"** extension.
-- Right-click `index.html` and select **"Open with Live Server"**.
+Then open the URL shown in your terminal (typically `http://localhost:5173`) in your browser.
 
 ---
 
