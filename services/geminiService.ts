@@ -1,5 +1,7 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, Language } from "@google/genai";
 import axios from "axios";
+
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Cố vấn Sigma AI sử dụng Google Gemini API
 // Đảm bảo export askSigmaAI để fix lỗi import trong AIAdvisor.tsx
@@ -37,12 +39,14 @@ export const mockResponse = (message: string) => {
 export const geminiService = {
   getChatResponseStream: async function* (
     userInput: string,
-    threadId: string = "Thread_default"
+    threadId: string = "Thread_default",
+    language: string = "en"
   ) {
     try {
+      // Use relative path - Vite proxy will forward to API_BASE_URL
       const { data } = await axios.post(
-        "/api/chat/stream",
-        { message: userInput, thread_id: threadId },
+        `/chat/stream`,
+        { message: userInput, thread_id: threadId , language: language},
         { 
           responseType: "stream",
           adapter: "fetch"

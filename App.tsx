@@ -23,7 +23,7 @@ const App: React.FC = () => {
     renderMarkdown: true
   };
 
-  const handleAiResponse = (input) => geminiService.getChatResponseStream(input, "Thread_default");
+  const handleAiResponse = (input, threadId, language) => geminiService.getChatResponseStream(input, threadId, language);
 
   useEffect(() => {
     const handleScroll = () => {
